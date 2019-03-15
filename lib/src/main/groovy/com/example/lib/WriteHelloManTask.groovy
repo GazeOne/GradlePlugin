@@ -1,6 +1,7 @@
 package com.example.lib
 
 import com.example.lib.data.HelloManData
+import com.example.lib.extension.InnerExtension
 import org.gradle.api.DefaultTask
 import org.gradle.api.tasks.Input
 import org.gradle.api.tasks.InputDirectory
@@ -12,6 +13,8 @@ class WriteHelloManTask extends DefaultTask {
     private HelloManData helloMan
     private File targetDirectory
     private String fileName
+    String mExtensionName
+    InnerExtension mInnerExtension
 
     @Nested
     HelloManData getHelloMan() {
@@ -36,6 +39,7 @@ class WriteHelloManTask extends DefaultTask {
     @TaskAction
     void writeObject() {
         File targetFile = new File(targetDirectory, fileName)
+        System.out.println(mExtensionName + "------" + mInnerExtension.extensionName)
         try {
             FileOutputStream fos = new FileOutputStream(targetFile)
             byte[] bytes = helloMan.toString().getBytes()

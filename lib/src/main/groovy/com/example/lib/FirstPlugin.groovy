@@ -27,5 +27,14 @@ class FirstPlugin implements Plugin<Project> {
                 instantiator)
 
 //        MyExtension mMyExtension = project.getExtensions().create("myExtension", MyExtension.class)
+        project.afterEvaluate {
+            addTasks(project, task)
+        }
+    }
+
+    static void addTasks(Project project, WriteHelloManTask task) {
+        MyExtension extension = project.extensions.getByType(MyExtension.class)
+        task.mExtensionName = extension.extensionName
+        task.mInnerExtension = extension.innerExtension
     }
 }
