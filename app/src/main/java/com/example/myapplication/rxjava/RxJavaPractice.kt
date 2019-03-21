@@ -1,4 +1,4 @@
-package com.example.myapplication
+package com.example.myapplication.rxjava
 
 import android.content.Context
 import android.util.Log
@@ -14,7 +14,7 @@ import io.reactivex.functions.*
 import io.reactivex.functions.Function
 
 
-class RxPractice constructor(context: Context) {
+class RxJavaPractice constructor(context: Context) {
 
     private var mContext: Context? = null
 
@@ -291,7 +291,18 @@ class RxPractice constructor(context: Context) {
                 add(Plan("1-1", "plan1-1"))
                 add(Plan("1-2", "plane1-2"))
             }))
-            add(Person("second", ArrayList<Plan>().apply { add(Plan("2-1", "plan2-1")) }))
+            add(
+                Person(
+                    "second",
+                    ArrayList<Plan>().apply {
+                        add(
+                            Plan(
+                                "2-1",
+                                "plan2-1"
+                            )
+                        )
+                    })
+            )
 
         }
 
@@ -321,7 +332,18 @@ class RxPractice constructor(context: Context) {
                 add(Plan("1-1", "plan1-1"))
                 add(Plan("1-2", "plane1-2"))
             }))
-            add(Person("second", ArrayList<Plan>().apply { add(Plan("2-1", "plan2-1")) }))
+            add(
+                Person(
+                    "second",
+                    ArrayList<Plan>().apply {
+                        add(
+                            Plan(
+                                "2-1",
+                                "plan2-1"
+                            )
+                        )
+                    })
+            )
 
         }
 
