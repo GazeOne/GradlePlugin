@@ -1,65 +1,83 @@
 package com.example.myapplication
 
+import android.arch.lifecycle.Observer
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.Button
+import android.widget.TextView
+import com.example.myapplication.lifecyclemangement.traditionmethod.TraditionLifeManageActivity
+import com.example.myapplication.lifecyclemangement.uselifecycle.UseLifeCycleActivity
+import com.example.myapplication.livedataandviewmodel.UserViewModel
 import com.example.myapplication.retrofit.GitHubService
 import com.example.myapplication.retrofit.RetrofitPractice
 import com.example.myapplication.retrofitandrxjava.ApiMethods
 import com.example.myapplication.retrofitandrxjava.RetrofitUtil
 import com.example.myapplication.rxjava.RxJavaPractice
 import com.example.myapplication.retrofit.Repo
-import java.io.IOException
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import com.example.myapplication.livedataandviewmodel.User
+import android.arch.lifecycle.ViewModelProviders
 
 
 class MainActivity : AppCompatActivity() {
 
+    private var mTraButton: Button? = null
+    private var mLifeButton: Button? = null
+    private var mUserTv: TextView? = null
+    private var mUserChange: Button? = null
+    private var mUserViewModel: UserViewModel? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-//        val rxPractice = RxJavaPractice(this)
-//        rxPractice.observable.subscribe(rxPractice.observer)
-//        rxPractice.linkUse()
-//        rxPractice.justUse()
-//        rxPractice.fromArrayUse()
-//        rxPractice.fromCallableUse()
-//        rxPractice.fromFeatrueUse()
-//        rxPractice.fromIterableUse()
-//        rxPractice.deferUse()
-//        rxPractice.timerUse()
-//        //rxPractice.intervalUse()
-//        rxPractice.rangeUse()
-//        rxPractice.mapUse()
-//        rxPractice.flatmapUse()
-//        rxPractice.concatmapUse()
-//        rxPractice.bufferUse()
-//        rxPractice.groupbyUse()
-//        rxPractice.scanUse()
-//        rxPractice.windowUse()
-//        rxPractice.concatUse()
-//        rxPractice.concatarrayUse()
-//        //rxPractice.mergeUse()
-//        rxPractice.zipUse()
-//        rxPractice.reduceUse()
-//        rxPractice.collectUse()
-//        rxPractice.startAndstartwithUse()
-//        rxPractice.countUse()
-//        rxPractice.delayUse()
-//        rxPractice.dooneachUse()
-//        rxPractice.doonnextUse()
-//        rxPractice.dooncompleteUse()
-//        rxPractice.doonsomething()
-//        rxPractice.retryUse()
-//        rxPractice.filterUse()
-//        rxPractice.allUse()
-//        rxPractice.skipuntilUse()
-//        rxPractice.ambUse()
-//        rxPractice.defaultifemptyUse()
+        mTraButton = findViewById(R.id.go_tarditionlifemanage)
+        mLifeButton = findViewById(R.id.go_uselifecycle)
+        mUserTv = findViewById(R.id.user)
+        mUserChange = findViewById(R.id.change_user)
+        val rxPractice = RxJavaPractice(this)
+        rxPractice.observable.subscribe(rxPractice.observer)
+        rxPractice.linkUse()
+        rxPractice.justUse()
+        rxPractice.fromArrayUse()
+        rxPractice.fromCallableUse()
+        rxPractice.fromFeatrueUse()
+        rxPractice.fromIterableUse()
+        rxPractice.deferUse()
+        rxPractice.timerUse()
+        //rxPractice.intervalUse()
+        rxPractice.rangeUse()
+        rxPractice.mapUse()
+        rxPractice.flatmapUse()
+        rxPractice.concatmapUse()
+        rxPractice.bufferUse()
+        rxPractice.groupbyUse()
+        rxPractice.scanUse()
+        rxPractice.windowUse()
+        rxPractice.concatUse()
+        rxPractice.concatarrayUse()
+        //rxPractice.mergeUse()
+        rxPractice.zipUse()
+        rxPractice.reduceUse()
+        rxPractice.collectUse()
+        rxPractice.startAndstartwithUse()
+        rxPractice.countUse()
+        rxPractice.delayUse()
+        rxPractice.dooneachUse()
+        rxPractice.doonnextUse()
+        rxPractice.dooncompleteUse()
+        rxPractice.doonsomething()
+        rxPractice.retryUse()
+        rxPractice.filterUse()
+        rxPractice.allUse()
+        rxPractice.skipuntilUse()
+        rxPractice.ambUse()
+        rxPractice.defaultifemptyUse()
 
-//        RetrofitUtil().createRetrofit()
+        RetrofitUtil().createRetrofit()
 
         ApiMethods.getTopMovie(RetrofitUtil().createObserver(), 0, 10)
 
@@ -93,9 +111,33 @@ class MainActivity : AppCompatActivity() {
 
         // 取消
         call.cancel()
+        mTraButton?.setOnClickListener {
+            val intent = Intent()
+            intent.setClass(this, TraditionLifeManageActivity::class.java)
+            startActivity(intent)
+        }
+
+        mLifeButton?.setOnClickListener {
+            val intent = Intent()
+            intent.setClass(this, UseLifeCycleActivity::class.java)
+            startActivity(intent)
+        }
+
+        //  view model.observe
+        mUserViewModel = ViewModelProviders.of(this).get(UserViewModel::class.java)
+        mUserViewModel?.data?.observe(this,
+            Observer<User> { user -> if (user != null) mUserTv?.text = user.toString() })
+
+        //	改变 User 内容
+        mUserChange?.setOnClickListener {
+            if (mUserViewModel != null && mUserViewModel?.data != null) {
+                mUserViewModel?.changeData()
+            }
+        }
     }
 
     companion object {
         val TAG = "MainActivity"
     }
+
 }
