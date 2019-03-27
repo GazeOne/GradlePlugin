@@ -101,7 +101,7 @@ class MainActivity : AppCompatActivity() {
                 /**
                  * 不同于retrofit1 可以同时操作序列化数据javabean和header
                  */
-                Log.i(TAG, repos!![0].toString())
+                Log.i(TAG, repos?.get(0).toString())
             }
 
             override fun onFailure(call: Call<List<Repo>>, t: Throwable) {
