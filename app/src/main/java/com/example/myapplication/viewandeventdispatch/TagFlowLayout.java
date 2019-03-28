@@ -202,12 +202,16 @@ public class TagFlowLayout extends ViewGroup {
 
     // test event dispacth
 
+    //只要onInterceptTouchEvent返回true，事件就不会向下分发，如果onTouchEvent ACTION_DOWN返回false,表示该view不处理这个事件
+    //onInterceptTouchEvent返回false，事件就会向下分发
     @Override
     public boolean onInterceptTouchEvent(MotionEvent ev) {
         Log.i(TAG, "onInterceptTouchEvent:==" + super.onInterceptTouchEvent(ev));
-        return super.onInterceptTouchEvent(ev);
+        return false;
     }
 
+    //dispatchTouchEvent()返回true，后续事件（ACTION_MOVE、ACTION_UP）会再传递，
+    // 如果返回false，dispatchTouchEvent()就接收不到ACTION_UP、ACTION_MOVE。
     @Override
     public boolean dispatchTouchEvent(MotionEvent ev) {
         Log.i(TAG, "dispatchTouchEvent:==" + super.dispatchTouchEvent(ev));
@@ -217,6 +221,17 @@ public class TagFlowLayout extends ViewGroup {
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         Log.i(TAG, "onTouchEvent:==" + event.getAction());
+        switch (event.getAction()) {
+            case MotionEvent.ACTION_DOWN:
+                Log.i(TAG, "onTouchEvent:== ACTION_DOWN");
+                return false;
+            case MotionEvent.ACTION_MOVE:
+                Log.i(TAG, "onTouchEvent:== ACTION_MOVE");
+                return false;
+            case MotionEvent.ACTION_UP:
+                Log.i(TAG, "onTouchEvent:== ACTION_UP");
+                return false;
+        }
         return false;
     }
 }
