@@ -22,6 +22,7 @@ import retrofit2.Response
 import com.example.myapplication.livedataandviewmodel.User
 import android.arch.lifecycle.ViewModelProviders
 import com.example.myapplication.Javareflect.JavaReflectMainActivity
+import com.example.myapplication.hookams.HookAmsActivity
 import com.example.myapplication.musicdemo.MusicAvtivity
 import com.example.myapplication.musicdemo2.MusicActivity2
 
@@ -36,6 +37,7 @@ class MainActivity : AppCompatActivity() {
     private var mGoMusicButton1: Button? = null
     private var mGoMusicButton2: Button? = null
     private var mGoJavaReflectButton: Button? = null
+    private var mGoHookAms: Button? = null
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -48,6 +50,7 @@ class MainActivity : AppCompatActivity() {
         mGoMusicButton1 = findViewById(R.id.go_music)
         mGoMusicButton2 = findViewById(R.id.go_music2)
         mGoJavaReflectButton = findViewById(R.id.go_javareflect)
+        mGoHookAms = findViewById(R.id.go_hookams)
         val rxPractice = RxJavaPractice(this)
         rxPractice.observable.subscribe(rxPractice.observer)
         rxPractice.linkUse()
@@ -160,6 +163,12 @@ class MainActivity : AppCompatActivity() {
         mGoJavaReflectButton?.setOnClickListener {
             val intent = Intent()
             intent.setClass(this, JavaReflectMainActivity::class.java)
+            startActivity(intent)
+        }
+
+        mGoHookAms?.setOnClickListener {
+            val intent = Intent()
+            intent.setClass(this, HookAmsActivity::class.java)
             startActivity(intent)
         }
     }

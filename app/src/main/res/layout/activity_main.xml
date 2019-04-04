@@ -66,4 +66,8 @@
             android:text="跳转java反射activity"
             android:id="@+id/go_javareflect"/>
 
+    <Button android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="跳转hookamsactivity"
+            android:id="@+id/go_hookams"/>
+
 </LinearLayout>

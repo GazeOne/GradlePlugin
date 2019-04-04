@@ -28,6 +28,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".Javareflect.JavaReflectMainActivity"/>
+        <activity android:name=".hookams.HookAmsActivity"/>
 
         <service android:name=".musicdemo.MyService"/>
         <service android:name=".musicdemo2.MyService2"/>
