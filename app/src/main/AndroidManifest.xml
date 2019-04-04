@@ -12,6 +12,10 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
+        <activity android:name=".musicdemo2.MusicActivity2">
+        </activity>
+        <activity android:name=".musicdemo.MusicAvtivity">
+        </activity>
         <activity android:name=".lifecyclemangement.uselifecycle.UseLifeCycleActivity">
         </activity>
         <activity android:name=".lifecyclemangement.traditionmethod.TraditionLifeManageActivity">
@@ -23,6 +27,9 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+
+        <service android:name=".musicdemo.MyService"/>
+        <service android:name=".musicdemo2.MyService2"/>
     </application>
 
 </manifest>

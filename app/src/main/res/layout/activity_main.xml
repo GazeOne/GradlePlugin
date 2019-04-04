@@ -53,4 +53,13 @@
                                                                      android:textSize="20sp"
                                                                      android:text="gone"/>
     </com.example.myapplication.viewandeventdispatch.TagFlowLayout>
+
+    <Button android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="跳转musicactivity"
+            android:id="@+id/go_music"/>
+
+    <Button android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="跳转musicactivity2"
+            android:id="@+id/go_music2"/>
+
 </LinearLayout>

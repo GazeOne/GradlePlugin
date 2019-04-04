@@ -21,6 +21,8 @@ import retrofit2.Callback
 import retrofit2.Response
 import com.example.myapplication.livedataandviewmodel.User
 import android.arch.lifecycle.ViewModelProviders
+import com.example.myapplication.musicdemo.MusicAvtivity
+import com.example.myapplication.musicdemo2.MusicActivity2
 
 
 class MainActivity : AppCompatActivity() {
@@ -30,6 +32,8 @@ class MainActivity : AppCompatActivity() {
     private var mUserTv: TextView? = null
     private var mUserChange: Button? = null
     private var mUserViewModel: UserViewModel? = null
+    private var mGoMusicButton1: Button? = null
+    private var mGoMusicButton2: Button? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,6 +42,8 @@ class MainActivity : AppCompatActivity() {
         mLifeButton = findViewById(R.id.go_uselifecycle)
         mUserTv = findViewById(R.id.user)
         mUserChange = findViewById(R.id.change_user)
+        mGoMusicButton1 = findViewById(R.id.go_music)
+        mGoMusicButton2 = findViewById(R.id.go_music2)
         val rxPractice = RxJavaPractice(this)
         rxPractice.observable.subscribe(rxPractice.observer)
         rxPractice.linkUse()
@@ -133,6 +139,18 @@ class MainActivity : AppCompatActivity() {
             if (mUserViewModel != null && mUserViewModel?.data != null) {
                 mUserViewModel?.changeData()
             }
+        }
+
+        mGoMusicButton1?.setOnClickListener {
+            val intent = Intent()
+            intent.setClass(this, MusicAvtivity::class.java)
+            startActivity(intent)
+        }
+
+        mGoMusicButton2?.setOnClickListener {
+            val intent = Intent()
+            intent.setClass(this, MusicActivity2::class.java)
+            startActivity(intent)
         }
     }
 
