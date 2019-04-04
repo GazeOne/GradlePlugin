@@ -62,4 +62,8 @@
             android:text="跳转musicactivity2"
             android:id="@+id/go_music2"/>
 
+    <Button android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="跳转java反射activity"
+            android:id="@+id/go_javareflect"/>
+
 </LinearLayout>

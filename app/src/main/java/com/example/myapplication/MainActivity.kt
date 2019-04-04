@@ -21,6 +21,7 @@ import retrofit2.Callback
 import retrofit2.Response
 import com.example.myapplication.livedataandviewmodel.User
 import android.arch.lifecycle.ViewModelProviders
+import com.example.myapplication.Javareflect.JavaReflectMainActivity
 import com.example.myapplication.musicdemo.MusicAvtivity
 import com.example.myapplication.musicdemo2.MusicActivity2
 
@@ -34,6 +35,8 @@ class MainActivity : AppCompatActivity() {
     private var mUserViewModel: UserViewModel? = null
     private var mGoMusicButton1: Button? = null
     private var mGoMusicButton2: Button? = null
+    private var mGoJavaReflectButton: Button? = null
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,6 +47,7 @@ class MainActivity : AppCompatActivity() {
         mUserChange = findViewById(R.id.change_user)
         mGoMusicButton1 = findViewById(R.id.go_music)
         mGoMusicButton2 = findViewById(R.id.go_music2)
+        mGoJavaReflectButton = findViewById(R.id.go_javareflect)
         val rxPractice = RxJavaPractice(this)
         rxPractice.observable.subscribe(rxPractice.observer)
         rxPractice.linkUse()
@@ -150,6 +154,12 @@ class MainActivity : AppCompatActivity() {
         mGoMusicButton2?.setOnClickListener {
             val intent = Intent()
             intent.setClass(this, MusicActivity2::class.java)
+            startActivity(intent)
+        }
+
+        mGoJavaReflectButton?.setOnClickListener {
+            val intent = Intent()
+            intent.setClass(this, JavaReflectMainActivity::class.java)
             startActivity(intent)
         }
     }
