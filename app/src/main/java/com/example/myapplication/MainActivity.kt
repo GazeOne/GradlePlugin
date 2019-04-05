@@ -23,8 +23,10 @@ import com.example.myapplication.livedataandviewmodel.User
 import android.arch.lifecycle.ViewModelProviders
 import com.example.myapplication.Javareflect.JavaReflectMainActivity
 import com.example.myapplication.hookams.HookAmsActivity
+import com.example.myapplication.hookstartactivity.HookActivity
 import com.example.myapplication.musicdemo.MusicAvtivity
 import com.example.myapplication.musicdemo2.MusicActivity2
+import kotlinx.android.synthetic.main.activity_main.*
 
 
 class MainActivity : AppCompatActivity() {
@@ -169,6 +171,12 @@ class MainActivity : AppCompatActivity() {
         mGoHookAms?.setOnClickListener {
             val intent = Intent()
             intent.setClass(this, HookAmsActivity::class.java)
+            startActivity(intent)
+        }
+
+        go_hookstartactivity.setOnClickListener{
+            val intent = Intent()
+            intent.setClass(this, HookActivity::class.java)
             startActivity(intent)
         }
     }
