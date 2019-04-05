@@ -34,6 +34,8 @@
 
         <service android:name=".musicdemo.MyService"/>
         <service android:name=".musicdemo2.MyService2"/>
+        <activity android:name=".hookstartactivity.StubActivity"/>
+        <activity android:name=".hookstartactivity.HookTestActivity"/>
     </application>
 
 </manifest>

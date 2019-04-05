@@ -74,4 +74,8 @@
             android:text="跳转hook startactivity"
             android:id="@+id/go_hookstartactivity"/>
 
+    <Button android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="跳转未在manifest中注册的activity"
+            android:id="@+id/go_unregisteractivity"/>
+
 </LinearLayout>
