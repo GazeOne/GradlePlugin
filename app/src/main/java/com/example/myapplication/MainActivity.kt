@@ -21,7 +21,11 @@ import retrofit2.Callback
 import retrofit2.Response
 import com.example.myapplication.livedataandviewmodel.User
 import android.arch.lifecycle.ViewModelProviders
+import android.support.v7.widget.DividerItemDecoration
+import android.support.v7.widget.LinearLayoutManager
 import com.example.myapplication.Javareflect.JavaReflectMainActivity
+import com.example.myapplication.customview.AutoPollAdapter
+import com.example.myapplication.customview.AutoPollRecyclerView
 import com.example.myapplication.hookams.HookAmsActivity
 import com.example.myapplication.hookstartactivity.HookActivity
 import com.example.myapplication.hookstartactivity.HookTestActivity
@@ -41,7 +45,7 @@ class MainActivity : AppCompatActivity() {
     private var mGoMusicButton2: Button? = null
     private var mGoJavaReflectButton: Button? = null
     private var mGoHookAms: Button? = null
-
+    private var mAutoFlyView: AutoPollRecyclerView? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -54,6 +58,7 @@ class MainActivity : AppCompatActivity() {
         mGoMusicButton2 = findViewById(R.id.go_music2)
         mGoJavaReflectButton = findViewById(R.id.go_javareflect)
         mGoHookAms = findViewById(R.id.go_hookams)
+        mAutoFlyView = findViewById(R.id.auto_fliper_rv)
         val rxPractice = RxJavaPractice(this)
         rxPractice.observable.subscribe(rxPractice.observer)
         rxPractice.linkUse()
@@ -175,21 +180,32 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        go_hookstartactivity.setOnClickListener{
+        go_hookstartactivity.setOnClickListener {
             val intent = Intent()
             intent.setClass(this, HookActivity::class.java)
             startActivity(intent)
         }
 
-        go_unregisteractivity.setOnClickListener{
+        go_unregisteractivity.setOnClickListener {
             val intent = Intent()
             intent.setClass(this, HookTestActivity::class.java)
             startActivity(intent)
         }
+
+        val list = mutableListOf<String>()
+//        for (i in 0..3) {
+//            list.add(" Item: $i")
+//        }
+
+        list.add(" Item: w")
+
+        val adapter = AutoPollAdapter(this, list)
+        mAutoFlyView?.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+        mAutoFlyView?.adapter = adapter
+        mAutoFlyView?.start()
     }
 
     companion object {
         val TAG = "MainActivity"
     }
-
 }

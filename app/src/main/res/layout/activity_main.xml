@@ -78,4 +78,8 @@
             android:text="跳转未在manifest中注册的activity"
             android:id="@+id/go_unregisteractivity"/>
 
+    <com.example.myapplication.customview.AutoPollRecyclerView android:layout_width="match_parent"
+                                                               android:layout_height="wrap_content"
+                                                               android:id="@+id/auto_fliper_rv"></com.example.myapplication.customview.AutoPollRecyclerView>
+
 </LinearLayout>
