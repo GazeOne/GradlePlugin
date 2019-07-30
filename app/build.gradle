@@ -89,6 +89,10 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
+    lintOptions {
+        abortOnError false
+    }
 }
 
 dependencies {
@@ -139,7 +143,7 @@ dependencies {
     kapt 'android.arch.persistence.room:compiler:1.1.0'
     api "android.arch.persistence.room:rxjava2:1.1.0"
 
-
+    implementation project(path: ':lintaar', configuration:'default')
 }
 
 ext {
@@ -257,3 +261,12 @@ class ProjectVersion {
         return "$major.$minor.$realease"
     }
 }
+
+// 配置assemble任务依赖lint，编译时就会执行Lint检查
+android.applicationVariants.all { variant ->
+    variant.outputs.each { output ->
+        def lintTask = tasks["lint${variant.name.capitalize()}"]
+        output.assemble.dependsOn lintTask
+    }
+}
+
