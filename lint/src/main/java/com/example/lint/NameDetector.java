@@ -20,7 +20,7 @@ public class NameDetector extends Detector implements Detector.UastScanner {
             Category.USABILITY,
             5,
             Severity.WARNING,
-            new Implementation(NameDetector.class, EnumSet.of(Scope.CLASS_FILE))
+            new Implementation(NameDetector.class, EnumSet.of(Scope.JAVA_FILE))
     );
 
     //返回我们所有感兴趣的类，即返回的类都被会检查

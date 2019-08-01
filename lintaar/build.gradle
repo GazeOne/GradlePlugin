@@ -28,7 +28,7 @@ android {
 }
 
 configurations {
-    lintLibrary
+    lintChecks
 }
 
 dependencies {
@@ -39,12 +39,12 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 
-    lintLibrary project(path: ":lint", configuration: "lintChecks")
+    lintChecks project(path: ":lint", configuration: "lintChecks")
 
 }
 
 task copyLintJar(type: Copy) {
-    from(configurations.lintLibrary) {
+    from(configurations.lintChecks) {
         println 'copyLintJar'
         rename {
             String fileName ->

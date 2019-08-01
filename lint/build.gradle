@@ -1,10 +1,16 @@
 apply plugin: 'java'
 
+configurations {
+    lintChecks
+}
+
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    compile 'com.android.tools.lint:lint-api:26.4.2'
-    compile 'com.android.tools.lint:lint-checks:26.4.2'
+    compileOnly 'com.android.tools.lint:lint-api:26.4.2'
+    compileOnly 'com.android.tools.lint:lint-checks:26.4.2'
+
+    lintChecks files(jar)
 }
 
 //添加如下代码
@@ -14,14 +20,5 @@ jar {
     }
 }
 
-configurations {
-    lintChecks
-}
-dependencies {
-    lintChecks files(jar)
-}
-
 sourceCompatibility = "8"
 targetCompatibility = "8"
-
-defaultTasks 'assemble'
