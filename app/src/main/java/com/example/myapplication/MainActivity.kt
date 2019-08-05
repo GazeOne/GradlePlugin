@@ -1,5 +1,7 @@
 package com.example.myapplication
 
+import android.app.AlertDialog
+import android.app.Dialog
 import android.arch.lifecycle.Observer
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
@@ -21,7 +23,7 @@ import retrofit2.Callback
 import retrofit2.Response
 import com.example.myapplication.livedataandviewmodel.User
 import android.arch.lifecycle.ViewModelProviders
-import android.support.v7.widget.DividerItemDecoration
+import android.content.DialogInterface
 import android.support.v7.widget.LinearLayoutManager
 import com.example.myapplication.Javareflect.JavaReflectMainActivity
 import com.example.myapplication.customview.AutoPollAdapter
@@ -46,6 +48,9 @@ class MainActivity : AppCompatActivity() {
     private var mGoJavaReflectButton: Button? = null
     private var mGoHookAms: Button? = null
     private var mAutoFlyView: AutoPollRecyclerView? = null
+    private var dialog: Dialog? = null
+    private var mPopDialogButton: Button? = null
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -59,6 +64,7 @@ class MainActivity : AppCompatActivity() {
         mGoJavaReflectButton = findViewById(R.id.go_javareflect)
         mGoHookAms = findViewById(R.id.go_hookams)
         mAutoFlyView = findViewById(R.id.auto_fliper_rv)
+        mPopDialogButton = findViewById(R.id.pop_dialog)
         val rxPractice = RxJavaPractice(this)
         rxPractice.observable.subscribe(rxPractice.observer)
         rxPractice.linkUse()
@@ -203,9 +209,40 @@ class MainActivity : AppCompatActivity() {
         mAutoFlyView?.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
         mAutoFlyView?.adapter = adapter
         mAutoFlyView?.start()
+
+        mPopDialogButton?.setOnClickListener {
+            showDialog()
+        }
     }
 
     companion object {
         val TAG = "MainActivity"
     }
+
+    fun showDialog() {
+        if (dialog?.isShowing() ?: false) {
+            Log.i(TAG, "dialog isShowing = $dialog")
+            dialog!!.dismiss()
+        }
+        dialog = AlertDialog.Builder(this).setCancelable(true).setTitle("")
+            .setMessage("message")
+            .setPositiveButton("现在去开启",
+                object : DialogInterface.OnClickListener {
+                    override fun onClick(dialog: DialogInterface, which: Int) {
+                        dialog.dismiss()
+                        //dismiss不会销毁对象
+                        Log.i(TAG, "dialog inner1 = $dialog")
+                    }
+                }).setNegativeButton("暂不开启",
+                object : DialogInterface.OnClickListener {
+
+                    override fun onClick(dialog: DialogInterface, which: Int) {
+                        dialog.dismiss()
+                        Log.i(TAG, "dialog inner2 = $dialog")
+                    }
+                }).create()
+        dialog?.show()
+        Log.i(TAG, "dialog outer = $dialog")
+    }
+
 }

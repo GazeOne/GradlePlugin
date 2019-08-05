@@ -1,85 +1,95 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<ScrollView
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:layout_width="match_parent" android:layout_height="match_parent"
-        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         tools:context=".MainActivity">
 
-    <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Hello World!"/>
+    <LinearLayout
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-    <Button android:layout_width="match_parent" android:layout_height="40dp"
-            android:id="@+id/go_tarditionlifemanage"
-            android:text="传统生命周期管理"/>
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Hello World!"/>
 
-    <Button android:layout_width="match_parent" android:layout_height="40dp"
-            android:id="@+id/go_uselifecycle"
-            android:text="使用lifecycle管理生命周期"/>
+        <Button android:layout_width="match_parent" android:layout_height="40dp"
+                android:id="@+id/go_tarditionlifemanage"
+                android:text="传统生命周期管理"/>
 
-    <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/user"/>
+        <Button android:layout_width="match_parent" android:layout_height="40dp"
+                android:id="@+id/go_uselifecycle"
+                android:text="使用lifecycle管理生命周期"/>
 
-    <Button android:layout_width="match_parent" android:layout_height="40dp"
-            android:id="@+id/change_user"
-            android:text="改变User"/>
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/user"/>
 
-    <com.example.myapplication.viewandeventdispatch.TagFlowLayout android:layout_width="match_parent"
-                                                                  android:layout_height="wrap_content"
-                                                                  app:gap="50">
-        <com.example.myapplication.viewandeventdispatch.CustomButton android:layout_width="wrap_content"
-                                                                     android:layout_height="wrap_content"
-                                                                     android:textSize="20sp"
-                                                                     android:text="today"/>
-        <com.example.myapplication.viewandeventdispatch.CustomButton android:layout_width="wrap_content"
-                                                                     android:layout_height="wrap_content"
-                                                                     android:textSize="20sp"
-                                                                     android:text="is"/>
-        <com.example.myapplication.viewandeventdispatch.CustomButton android:layout_width="wrap_content"
-                                                                     android:layout_height="wrap_content"
-                                                                     android:textSize="20sp"
-                                                                     android:text="all the road leads to death"/>
-        <com.example.myapplication.viewandeventdispatch.CustomButton android:layout_width="wrap_content"
-                                                                     android:layout_height="wrap_content"
-                                                                     android:textSize="20sp"
-                                                                     android:text="it is right"/>
-        <com.example.myapplication.viewandeventdispatch.CustomButton android:layout_width="wrap_content"
-                                                                     android:layout_height="wrap_content"
-                                                                     android:textSize="20sp"
-                                                                     android:text="gone"/>
-    </com.example.myapplication.viewandeventdispatch.TagFlowLayout>
+        <Button android:layout_width="match_parent" android:layout_height="40dp"
+                android:id="@+id/change_user"
+                android:text="改变User"/>
 
-    <Button android:layout_width="match_parent" android:layout_height="wrap_content"
-            android:text="跳转musicactivity"
-            android:id="@+id/go_music"/>
+        <com.example.myapplication.viewandeventdispatch.TagFlowLayout android:layout_width="match_parent"
+                                                                      android:layout_height="wrap_content"
+                                                                      app:gap="50">
+            <com.example.myapplication.viewandeventdispatch.CustomButton android:layout_width="wrap_content"
+                                                                         android:layout_height="wrap_content"
+                                                                         android:textSize="20sp"
+                                                                         android:text="today"/>
+            <com.example.myapplication.viewandeventdispatch.CustomButton android:layout_width="wrap_content"
+                                                                         android:layout_height="wrap_content"
+                                                                         android:textSize="20sp"
+                                                                         android:text="is"/>
+            <com.example.myapplication.viewandeventdispatch.CustomButton android:layout_width="wrap_content"
+                                                                         android:layout_height="wrap_content"
+                                                                         android:textSize="20sp"
+                                                                         android:text="all the road leads to death"/>
+            <com.example.myapplication.viewandeventdispatch.CustomButton android:layout_width="wrap_content"
+                                                                         android:layout_height="wrap_content"
+                                                                         android:textSize="20sp"
+                                                                         android:text="it is right"/>
+            <com.example.myapplication.viewandeventdispatch.CustomButton android:layout_width="wrap_content"
+                                                                         android:layout_height="wrap_content"
+                                                                         android:textSize="20sp"
+                                                                         android:text="gone"/>
+        </com.example.myapplication.viewandeventdispatch.TagFlowLayout>
 
-    <Button android:layout_width="match_parent" android:layout_height="wrap_content"
-            android:text="跳转musicactivity2"
-            android:id="@+id/go_music2"/>
+        <Button android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:text="跳转musicactivity"
+                android:id="@+id/go_music"/>
 
-    <Button android:layout_width="match_parent" android:layout_height="wrap_content"
-            android:text="跳转java反射activity"
-            android:id="@+id/go_javareflect"/>
+        <Button android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:text="跳转musicactivity2"
+                android:id="@+id/go_music2"/>
 
-    <Button android:layout_width="match_parent" android:layout_height="wrap_content"
-            android:text="跳转hookamsactivity"
-            android:id="@+id/go_hookams"/>
+        <Button android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:text="跳转java反射activity"
+                android:id="@+id/go_javareflect"/>
 
-    <Button android:layout_width="match_parent" android:layout_height="wrap_content"
-            android:text="跳转hook startactivity"
-            android:id="@+id/go_hookstartactivity"/>
+        <Button android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:text="跳转hookamsactivity"
+                android:id="@+id/go_hookams"/>
 
-    <Button android:layout_width="match_parent" android:layout_height="wrap_content"
-            android:text="跳转未在manifest中注册的activity"
-            android:id="@+id/go_unregisteractivity"/>
+        <Button android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:text="跳转hook startactivity"
+                android:id="@+id/go_hookstartactivity"/>
 
-    <com.example.myapplication.customview.AutoPollRecyclerView android:layout_width="match_parent"
-                                                               android:layout_height="wrap_content"
-                                                               android:id="@+id/auto_fliper_rv"></com.example.myapplication.customview.AutoPollRecyclerView>
+        <Button android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:text="跳转未在manifest中注册的activity"
+                android:id="@+id/go_unregisteractivity"/>
 
-</LinearLayout>
+        <Button android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:text="弹出dialog"
+                android:id="@+id/pop_dialog"/>
+
+        <com.example.myapplication.customview.AutoPollRecyclerView android:layout_width="match_parent"
+                                                                   android:layout_height="wrap_content"
+                                                                   android:id="@+id/auto_fliper_rv"></com.example.myapplication.customview.AutoPollRecyclerView>
+
+    </LinearLayout>
+
+</ScrollView>
