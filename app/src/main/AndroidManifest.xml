@@ -36,6 +36,7 @@
         <service android:name=".musicdemo2.MyService2"/>
         <activity android:name=".hookstartactivity.StubActivity"/>
         <activity android:name=".hookstartactivity.HookTestActivity"/>
+        <activity android:name=".customview.cardrecyclerview.CardActivity"/>
     </application>
 
 </manifest>

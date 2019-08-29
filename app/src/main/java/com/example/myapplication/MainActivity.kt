@@ -28,6 +28,7 @@ import android.support.v7.widget.LinearLayoutManager
 import com.example.myapplication.Javareflect.JavaReflectMainActivity
 import com.example.myapplication.customview.AutoPollAdapter
 import com.example.myapplication.customview.AutoPollRecyclerView
+import com.example.myapplication.customview.cardrecyclerview.CardActivity
 import com.example.myapplication.hookams.HookAmsActivity
 import com.example.myapplication.hookstartactivity.HookActivity
 import com.example.myapplication.hookstartactivity.HookTestActivity
@@ -195,6 +196,12 @@ class MainActivity : AppCompatActivity() {
         go_unregisteractivity.setOnClickListener {
             val intent = Intent()
             intent.setClass(this, HookTestActivity::class.java)
+            startActivity(intent)
+        }
+
+        go_card.setOnClickListener {
+            val intent = Intent()
+            intent.setClass(this, CardActivity::class.java)
             startActivity(intent)
         }
 

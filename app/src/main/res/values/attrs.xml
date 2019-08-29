@@ -3,4 +3,8 @@
     <declare-styleable name="TagFlowLayout">
         <attr name="gap" format="integer"></attr>
     </declare-styleable>
+
+    <declare-styleable name="RoundImageView">
+        <attr name="radius" format="reference|dimension" />
+    </declare-styleable>
 </resources>
