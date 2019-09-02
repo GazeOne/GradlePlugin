@@ -12,6 +12,14 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
+        <service
+                android:name=".mediaplayer.MediaPlayService"
+                android:enabled="true"
+                android:exported="true">
+        </service>
+
+        <activity android:name=".mediaplayer.MediaPlayerActivity">
+        </activity>
         <activity android:name=".hookstartactivity.HookActivity">
         </activity>
         <activity android:name=".musicdemo2.MusicActivity2">
@@ -34,6 +42,7 @@
 
         <service android:name=".musicdemo.MyService"/>
         <service android:name=".musicdemo2.MyService2"/>
+
         <activity android:name=".hookstartactivity.StubActivity"/>
         <activity android:name=".hookstartactivity.HookTestActivity"/>
         <activity android:name=".customview.cardrecyclerview.CardActivity"/>

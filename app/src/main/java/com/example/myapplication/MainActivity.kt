@@ -32,6 +32,7 @@ import com.example.myapplication.customview.cardrecyclerview.CardActivity
 import com.example.myapplication.hookams.HookAmsActivity
 import com.example.myapplication.hookstartactivity.HookActivity
 import com.example.myapplication.hookstartactivity.HookTestActivity
+import com.example.myapplication.mediaplayer.MediaPlayerActivity
 import com.example.myapplication.musicdemo.MusicAvtivity
 import com.example.myapplication.musicdemo2.MusicActivity2
 import kotlinx.android.synthetic.main.activity_main.*
@@ -202,6 +203,12 @@ class MainActivity : AppCompatActivity() {
         go_card.setOnClickListener {
             val intent = Intent()
             intent.setClass(this, CardActivity::class.java)
+            startActivity(intent)
+        }
+
+        go_media.setOnClickListener {
+            val intent = Intent()
+            intent.setClass(this, MediaPlayerActivity::class.java)
             startActivity(intent)
         }
 
