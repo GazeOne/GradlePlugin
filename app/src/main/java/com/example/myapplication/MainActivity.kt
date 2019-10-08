@@ -24,6 +24,7 @@ import retrofit2.Response
 import com.example.myapplication.livedataandviewmodel.User
 import android.arch.lifecycle.ViewModelProviders
 import android.content.DialogInterface
+import android.os.CountDownTimer
 import android.support.v7.widget.LinearLayoutManager
 import com.example.myapplication.Javareflect.JavaReflectMainActivity
 import com.example.myapplication.customview.AutoPollAdapter
@@ -227,6 +228,14 @@ class MainActivity : AppCompatActivity() {
         mPopDialogButton?.setOnClickListener {
             showDialog()
         }
+
+        val countDownTimer = object : CountDownTimer(10000, 1000) {
+            override fun onFinish() {
+                metor.stop()
+            }
+            override fun onTick(p0: Long) {
+            }
+        }.start()
     }
 
     companion object {
