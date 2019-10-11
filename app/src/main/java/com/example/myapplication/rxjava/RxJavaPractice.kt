@@ -5,6 +5,7 @@ import android.util.Log
 import io.reactivex.Observable
 import io.reactivex.ObservableOnSubscribe
 import io.reactivex.Observer
+import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
 import java.util.concurrent.Callable
 import java.util.concurrent.FutureTask
@@ -218,6 +219,21 @@ class RxJavaPractice constructor(context: Context) {
 
                 override fun onComplete() {
                 }
+            })
+    }
+
+    public fun timerTest() {
+        Observable.timer(500L, TimeUnit.MILLISECONDS)
+            .map {
+                val data = 1
+                data
+            }
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe({ it ->
+                Log.i(TAG, "timerTest success ${it.toString()}")
+                throw java.lang.Exception("异常测试")
+            }, { it ->
+                Log.i(TAG, "timerTest error ${it.message}")
             })
     }
 

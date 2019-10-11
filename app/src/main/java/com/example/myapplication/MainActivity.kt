@@ -106,6 +106,7 @@ class MainActivity : AppCompatActivity() {
         rxPractice.skipuntilUse()
         rxPractice.ambUse()
         rxPractice.defaultifemptyUse()
+        rxPractice.timerTest()
 
         RetrofitUtil().createRetrofit()
 
@@ -229,13 +230,13 @@ class MainActivity : AppCompatActivity() {
             showDialog()
         }
 
-        val countDownTimer = object : CountDownTimer(10000, 1000) {
+       /* val countDownTimer = object : CountDownTimer(10000, 1000) {
             override fun onFinish() {
                 metor.stop()
             }
             override fun onTick(p0: Long) {
             }
-        }.start()
+        }.start()*/
     }
 
     companion object {

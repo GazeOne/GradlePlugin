@@ -11,9 +11,9 @@
             android:layout_width="match_parent" android:layout_height="wrap_content"
             android:orientation="vertical">
 
-        <com.example.myapplication.customview.metroview.MetorView android:layout_width="800dp"
+      <!--  <com.example.myapplication.customview.metroview.MetorView android:layout_width="800dp"
                                                                   android:layout_height="1024dp"
-        android:id="@+id/metor"/>
+        android:id="@+id/metor"/>-->
 
         <TextView
                 android:layout_width="wrap_content"
