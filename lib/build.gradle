@@ -4,6 +4,8 @@ apply plugin: 'maven'
 dependencies {
     compile gradleApi()
     compile localGroovy()
+    compile 'com.android.tools.build:gradle:3.3.0'
+    compile group: 'org.javassist', name: 'javassist', version: '3.22.0-GA'
 }
 
 group='com.tb.plugin'

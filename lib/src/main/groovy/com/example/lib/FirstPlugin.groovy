@@ -1,5 +1,7 @@
 package com.example.lib
 
+import com.android.build.gradle.AppExtension
+import com.android.build.gradle.BaseExtension
 import com.example.lib.data.HelloManData
 import com.example.lib.extension.MyExtension
 import org.gradle.api.Plugin
@@ -11,6 +13,11 @@ class FirstPlugin implements Plugin<Project> {
 
     @Override
     void apply(Project project) {
+
+        //注册transform
+        def android = project.extensions.getByType(BaseExtension.class)
+        android.registerTransform(new InjectTransform(project))
+
         File folder = new File("D:/workspace")
         if (!folder.exists() && !folder.isDirectory()) {
             folder.mkdirs()
