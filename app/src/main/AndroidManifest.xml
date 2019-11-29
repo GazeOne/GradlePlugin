@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.example.myapplication">
+        package="com.example.myapplication">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
             android:allowBackup="true"
@@ -12,40 +12,35 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
+        <activity android:name=".customview.TvActivity"></activity>
+
         <service
                 android:name=".mediaplayer.MediaPlayService"
                 android:enabled="true"
-                android:exported="true">
-        </service>
+                android:exported="true"></service>
 
-        <activity android:name=".mediaplayer.MediaPlayerActivity">
-        </activity>
-        <activity android:name=".hookstartactivity.HookActivity">
-        </activity>
-        <activity android:name=".musicdemo2.MusicActivity2">
-        </activity>
-        <activity android:name=".musicdemo.MusicAvtivity">
-        </activity>
-        <activity android:name=".lifecyclemangement.uselifecycle.UseLifeCycleActivity">
-        </activity>
-        <activity android:name=".lifecyclemangement.traditionmethod.TraditionLifeManageActivity">
-        </activity>
+        <activity android:name=".mediaplayer.MediaPlayerActivity"></activity>
+        <activity android:name=".hookstartactivity.HookActivity"></activity>
+        <activity android:name=".musicdemo2.MusicActivity2"></activity>
+        <activity android:name=".musicdemo.MusicAvtivity"></activity>
+        <activity android:name=".lifecyclemangement.uselifecycle.UseLifeCycleActivity"></activity>
+        <activity android:name=".lifecyclemangement.traditionmethod.TraditionLifeManageActivity"></activity>
         <activity android:name=".MainActivity">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
+                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Javareflect.JavaReflectMainActivity"/>
-        <activity android:name=".hookams.HookAmsActivity"/>
+        <activity android:name=".Javareflect.JavaReflectMainActivity" />
+        <activity android:name=".hookams.HookAmsActivity" />
 
-        <service android:name=".musicdemo.MyService"/>
-        <service android:name=".musicdemo2.MyService2"/>
+        <service android:name=".musicdemo.MyService" />
+        <service android:name=".musicdemo2.MyService2" />
 
-        <activity android:name=".hookstartactivity.StubActivity"/>
-        <activity android:name=".hookstartactivity.HookTestActivity"/>
-        <activity android:name=".customview.cardrecyclerview.CardActivity"/>
+        <activity android:name=".hookstartactivity.StubActivity" />
+        <activity android:name=".hookstartactivity.HookTestActivity" />
+        <activity android:name=".customview.cardrecyclerview.CardActivity" />
     </application>
 
 </manifest>

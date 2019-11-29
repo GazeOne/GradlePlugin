@@ -49,7 +49,8 @@ android {
             minifyEnabled false                              //是否混淆
             zipAlignEnabled false                            //Zipalign优化
             shrinkResources false                            // 移除无用的resource文件
-            signingConfig signingConfigs.debug               //使用debug证书签名,signingConfigs要放到buildTypes之前否则会报错
+            signingConfig signingConfigs.debug
+            //使用debug证书签名,signingConfigs要放到buildTypes之前否则会报错
         }
         release {
             buildConfigField "boolean", "LOG_ON", "false" //不显示Log
@@ -58,7 +59,8 @@ android {
             zipAlignEnabled true                             //开启Zipalign优化
             shrinkResources true                             //移除无用的resource文件，此项只有在开启混淆时才生效
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            signingConfig signingConfigs.release             //使用release证书签名,signingConfigs要放到buildTypes之前否则会报错
+            signingConfig signingConfigs.release
+            //使用release证书签名,signingConfigs要放到buildTypes之前否则会报错
 
             android.applicationVariants.all { variant -> //重命名生成的apk
                 variant.outputs.all { output ->

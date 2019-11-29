@@ -29,6 +29,7 @@ import android.support.v7.widget.LinearLayoutManager
 import com.example.myapplication.Javareflect.JavaReflectMainActivity
 import com.example.myapplication.customview.AutoPollAdapter
 import com.example.myapplication.customview.AutoPollRecyclerView
+import com.example.myapplication.customview.TvActivity
 import com.example.myapplication.customview.cardrecyclerview.CardActivity
 import com.example.myapplication.hookams.HookAmsActivity
 import com.example.myapplication.hookstartactivity.HookActivity
@@ -114,7 +115,10 @@ class MainActivity : AppCompatActivity() {
 
         val retrofit = RetrofitPractice<GitHubService>()
             .createRetrofit("https://api.github.com/")
-        val gitHubService = RetrofitPractice<GitHubService>().createGithubService(retrofit, GitHubService::class.java)
+        val gitHubService = RetrofitPractice<GitHubService>().createGithubService(
+            retrofit,
+            GitHubService::class.java
+        )
 
 
         //https://api.github.com/users/octocat/repos
@@ -222,7 +226,8 @@ class MainActivity : AppCompatActivity() {
         list.add(" Item: w")
 
         val adapter = AutoPollAdapter(this, list)
-        mAutoFlyView?.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+        mAutoFlyView?.layoutManager =
+            LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
         mAutoFlyView?.adapter = adapter
         mAutoFlyView?.start()
 
@@ -230,13 +235,18 @@ class MainActivity : AppCompatActivity() {
             showDialog()
         }
 
-       /* val countDownTimer = object : CountDownTimer(10000, 1000) {
-            override fun onFinish() {
-                metor.stop()
-            }
-            override fun onTick(p0: Long) {
-            }
-        }.start()*/
+        /* val countDownTimer = object : CountDownTimer(10000, 1000) {
+             override fun onFinish() {
+                 metor.stop()
+             }
+             override fun onTick(p0: Long) {
+             }
+         }.start()*/
+
+        go_tvStyle.setOnClickListener {
+            val intent = Intent(this, TvActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     companion object {
